@@ -1,7 +1,7 @@
 .items-container {
-  display: flex !important;
+  display: flex;
   flex-wrap: wrap;
-  /* align-content: center;
+  align-content: center;
+  justify-content: center;
   height: 600px;
-  justify-content: center; */
 }
