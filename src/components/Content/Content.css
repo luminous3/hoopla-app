@@ -1,0 +1,7 @@
+.items-container {
+  display: flex !important;
+  flex-wrap: wrap;
+  /* align-content: center;
+  height: 600px;
+  justify-content: center; */
+}

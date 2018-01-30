@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import { connect, bindActionCreators } from 'react-redux';
-import { fetchItems } from '../redux/actions';
+import { connect } from 'react-redux';
+import { fetchItems } from '../../redux/actions';
 import Loader from './Loader';
-import Item from './Item';
+import Item from './Item/Item';
 
 export class Content extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount() {
     const { fetchItems } = this.props;
     fetchItems();
@@ -28,7 +24,11 @@ export class Content extends Component {
       <div className="container">
         {isFetching && <Loader />}
         {!isFetching && (
-          <div>{items.length && <ul>{this.renderItems()}</ul>}</div>
+          <div>
+            {items.length && (
+              <ul className="items-container">{this.renderItems()}</ul>
+            )}
+          </div>
         )}
       </div>
     );
