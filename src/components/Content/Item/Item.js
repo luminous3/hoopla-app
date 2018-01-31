@@ -3,7 +3,7 @@ import styles from './Item.css';
 
 export class Item extends Component {
   render() {
-    const { titleId, artKey, artistName, title } = this.props;
+    const { artKey, artistName, title } = this.props;
 
     return (
       <li className={styles.item}>

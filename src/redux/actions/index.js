@@ -20,7 +20,6 @@ function receiveItems(json) {
 export function fetchItems() {
   return dispatch => {
     dispatch(requestItems());
-    const init = {};
     return fetch(
       `https://hoopla-ws-dev.hoopladigital.com/kinds/7/titles/featured?offset=0&limit=51&kindId=7`,
       {

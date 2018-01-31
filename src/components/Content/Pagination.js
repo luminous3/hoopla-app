@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import _ from 'lodash';
 
 import { PER_PAGE } from '../../constants/content';
 import styles from './Content.css';
@@ -10,12 +9,8 @@ export class Pagination extends Component {
     const { items, resultPage } = this.props;
     const pages = Math.ceil(items.length / PER_PAGE);
 
-    const linkId = parseInt(resultPage);
-    const emptyDiv = (
-      <li className={styles.nav}>
-        <a href="" />
-      </li>
-    );
+    const linkId = parseInt(resultPage, 10);
+    const emptyDiv = <li className={styles.nav} />;
     let leftNav = emptyDiv;
     if (resultPage > 1) {
       leftNav = (
