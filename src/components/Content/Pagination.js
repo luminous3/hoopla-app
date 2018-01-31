@@ -35,7 +35,10 @@ export class Pagination extends Component {
     }
 
     const lowEnd = (resultPage - 1) * PER_PAGE + 1;
-    const highEnd = resultPage * PER_PAGE;
+    let highEnd = resultPage * PER_PAGE;
+    if (highEnd > items.length) {
+      highEnd = items.length;
+    }
 
     return (
       <ul className={styles.pagination_wrapper}>
