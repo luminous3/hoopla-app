@@ -8,18 +8,18 @@ import styles from './Content.css';
 export class Pagination extends Component {
   render() {
     const { items, resultPage } = this.props;
-    const pages = Math.ceil(items.length / 6);
+    const pages = Math.ceil(items.length / PER_PAGE);
 
     const linkId = parseInt(resultPage);
     const emptyDiv = (
-      <li>
+      <li className={styles.nav}>
         <a href="" />
       </li>
     );
     let leftNav = emptyDiv;
     if (resultPage > 1) {
       leftNav = (
-        <li>
+        <li className={styles.nav}>
           <Link to={`/pages/${linkId - 1}`}>PREVIOUS</Link>
         </li>
       );
@@ -28,7 +28,7 @@ export class Pagination extends Component {
     let rightNav = emptyDiv;
     if (resultPage < pages) {
       rightNav = (
-        <li>
+        <li className={`${styles.nav} ${styles.right_nav}`}>
           <Link to={`/pages/${linkId + 1}`}>NEXT</Link>
         </li>
       );
