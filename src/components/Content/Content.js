@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchItems } from '../../redux/actions';
 import Loader from './Loader';
 import Item from './Item/Item';
+import styles from './Content.css';
 
 export class Content extends Component {
   componentWillMount() {
@@ -23,13 +24,10 @@ export class Content extends Component {
     return (
       <div className="container">
         {isFetching && <Loader />}
-        {!isFetching && (
-          <div>
-            {items.length && (
-              <ul className="items-container">{this.renderItems()}</ul>
-            )}
-          </div>
-        )}
+        {!isFetching &&
+          items.length && (
+            <ul className={styles.wrapper}>{this.renderItems()}</ul>
+          )}
       </div>
     );
   }

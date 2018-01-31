@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
+import styles from './Item.css';
 
 export class Item extends Component {
   render() {
     const { url, images } = this.props;
     return (
-      <li className="item">
+      <li className={styles.item}>
         <a href={url} target="_blank">
-          <img
-            src={images.fixed_width_downsampled.url}
-            className="preview"
-            alt="Preview"
-          />
+          <img src={images.fixed_width_downsampled.url} alt="Preview" />
         </a>
       </li>
     );

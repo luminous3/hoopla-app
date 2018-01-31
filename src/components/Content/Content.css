@@ -1,7 +1,7 @@
-.items-container {
+.wrapper {
   display: flex;
   flex-wrap: wrap;
-  align-content: center;
   justify-content: center;
-  height: 600px;
+  align-content: center;
+  padding: 5px;
 }
