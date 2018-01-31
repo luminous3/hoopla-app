@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import { fetchItems } from '../../redux/actions';
+import { PER_PAGE } from '../../constants/content';
 import Loader from './Loader';
 import Item from './Item/Item';
 import Pagination from './Pagination';
@@ -18,10 +20,10 @@ export class Content extends Component {
     const resultPage = this.props.params.id;
 
     if (resultPage) {
-      const lowRange = (resultPage - 1) * 6;
-      newItems = items.slice(lowRange, lowRange + 6);
+      const lowRange = (resultPage - 1) * PER_PAGE;
+      newItems = items.slice(lowRange, lowRange + PER_PAGE);
     } else {
-      newItems = items.slice(0, 6);
+      newItems = items.slice(0, PER_PAGE);
     }
 
     return newItems.map(({ titleId, artKey, artistName, title }) => {
@@ -38,6 +40,7 @@ export class Content extends Component {
 
   render() {
     const resultPage = this.props.params.id ? this.props.params.id : 1;
+
     const { items, isFetching } = this.props;
     let content = null;
 

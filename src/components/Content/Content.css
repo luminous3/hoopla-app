@@ -12,9 +12,16 @@
   margin-top: 100px;
 }
 
+.showing {
+  text-align: center;
+  color: #454545;
+}
+
 .pagination_wrapper {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-  padding: 20px 60px 10px !important;
+  padding: 40px 60px 10px !important;
+  font-size: 12px;
+  font-weight: 100;
 }
