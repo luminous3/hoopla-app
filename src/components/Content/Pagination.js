@@ -9,22 +9,28 @@ export class Pagination extends Component {
     const pages = Math.ceil(items.length / 10);
 
     const linkId = parseInt(resultPage);
-    return (
-      <div className={styles.pagination}>
-        <ul className="pagination">
-          <li className={resultPage === 1 ? 'disabled' : ''}>
-            <Link to={resultPage > 1 ? `/pages/${linkId - 1}` : null}>
-              <i className="material-icons">chevron_left</i>
-            </Link>
-          </li>
+    let leftNav,
+      rightNav = null;
+    if (resultPage > 1) {
+      leftNav = (
+        <li>
+          <Link to={`/pages/${linkId - 1}`}>PREVIOUS</Link>
+        </li>
+      );
+    }
 
-          <li className={resultPage === pages + 1 ? 'disabled' : ''}>
-            <Link to={resultPage < 10 ? `/pages/${linkId + 1}` : null}>
-              <i className="material-icons">chevron_right</i>
-            </Link>
-          </li>
-        </ul>
-      </div>
+    if (resultPage != pages + 1) {
+      rightNav = (
+        <li>
+          <Link to={resultPage < 10 ? `/pages/${linkId + 1}` : null}>NEXT</Link>
+        </li>
+      );
+    }
+    return (
+      <ul className={styles.pagination_wrapper}>
+        {leftNav}
+        {rightNav}
+      </ul>
     );
   }
 }

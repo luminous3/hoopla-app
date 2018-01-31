@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  padding: 5px;
+  padding: 5px !important;
 }
 
 .loading {
@@ -12,6 +12,9 @@
   margin-top: 100px;
 }
 
-.pagination {
-  text-align: center;
+.pagination_wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 20px 60px 10px !important;
 }
