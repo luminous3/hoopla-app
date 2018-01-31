@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import styles from './Content.css';
 
 export class Loader extends Component {
   render() {
     return (
-      <div className="loading-container">
+      <div className={styles.loading}>
         <div className="preloader-wrapper big active">
           <div className="spinner-layer spinner-red-only">
             <div className="circle-clipper left">

@@ -13,23 +13,24 @@ export class Content extends Component {
 
   renderItems() {
     const { items } = this.props;
-    return items.map(({ id, images, url }) => {
-      return <Item key={id} url={url} images={images} />;
+    return items.map(({ titleId, artKey }) => {
+      return <Item key={titleId} artKey={artKey} />;
     });
   }
 
   render() {
     const { items, isFetching } = this.props;
+    let content = null;
 
-    return (
-      <div className="container">
-        {isFetching && <Loader />}
-        {!isFetching &&
-          items.length && (
-            <ul className={styles.wrapper}>{this.renderItems()}</ul>
-          )}
-      </div>
-    );
+    if (isFetching) {
+      content = <Loader />;
+    } else {
+      if (items.length) {
+        content = <ul className={styles.wrapper}>{this.renderItems()}</ul>;
+      }
+    }
+
+    return <div className="container">{content}</div>;
   }
 }
 

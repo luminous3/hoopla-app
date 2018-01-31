@@ -3,11 +3,18 @@ import styles from './Item.css';
 
 export class Item extends Component {
   render() {
-    const { url, images } = this.props;
+    const { artKey } = this.props;
+    debugger;
     return (
       <li className={styles.item}>
-        <a href={url} target="_blank">
-          <img src={images.fixed_width_downsampled.url} alt="Preview" />
+        <a
+          href={`https://d2snwnmzyr8jue.cloudfront.net/${artKey}_270.jpeg`}
+          target="_blank"
+        >
+          <img
+            src={`https://d2snwnmzyr8jue.cloudfront.net/${artKey}_270.jpeg`}
+            alt="Preview"
+          />
         </a>
       </li>
     );
