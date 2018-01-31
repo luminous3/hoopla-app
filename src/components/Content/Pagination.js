@@ -6,7 +6,7 @@ import _ from 'lodash';
 export class Pagination extends Component {
   render() {
     const { items, resultPage } = this.props;
-    const pages = Math.ceil(items.length / 10);
+    const pages = Math.ceil(items.length / 6);
 
     const linkId = parseInt(resultPage);
     const emptyDiv = (
@@ -24,10 +24,11 @@ export class Pagination extends Component {
     }
 
     let rightNav = emptyDiv;
-    if (resultPage != pages + 1) {
+    debugger
+    if (resultPage < pages) {
       rightNav = (
         <li>
-          <Link to={resultPage < 10 ? `/pages/${linkId + 1}` : null}>NEXT</Link>
+          <Link to={ `/pages/${linkId + 1}`}>NEXT</Link>
         </li>
       );
     }
