@@ -9,8 +9,12 @@ export class Pagination extends Component {
     const pages = Math.ceil(items.length / 10);
 
     const linkId = parseInt(resultPage);
-    let leftNav,
-      rightNav = null;
+    const emptyDiv = (
+      <li>
+        <a href="" />
+      </li>
+    );
+    let leftNav = emptyDiv;
     if (resultPage > 1) {
       leftNav = (
         <li>
@@ -19,6 +23,7 @@ export class Pagination extends Component {
       );
     }
 
+    let rightNav = emptyDiv;
     if (resultPage != pages + 1) {
       rightNav = (
         <li>
