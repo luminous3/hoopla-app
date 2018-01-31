@@ -18,7 +18,6 @@ export class Content extends Component {
     const resultPage = this.props.params.id;
 
     if (resultPage) {
-      // search result page
       const lowRange = (resultPage - 1) * 6;
       newItems = items.slice(lowRange, lowRange + 6);
     } else {

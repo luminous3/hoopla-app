@@ -24,7 +24,6 @@ export class Pagination extends Component {
     }
 
     let rightNav = emptyDiv;
-    debugger
     if (resultPage < pages) {
       rightNav = (
         <li>
