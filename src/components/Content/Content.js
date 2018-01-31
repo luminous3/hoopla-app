@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchItems } from '../../redux/actions';
 import Loader from './Loader';
 import Item from './Item/Item';
+import Pagination from './Pagination';
 import styles from './Content.css';
 
 export class Content extends Component {
@@ -13,7 +14,18 @@ export class Content extends Component {
 
   renderItems() {
     const { items } = this.props;
-    return items.map(({ titleId, artKey, artistName, title }) => {
+    let newItems = [];
+    const resultPage = this.props.params.id;
+
+    if (resultPage) {
+      // search result page
+      const lowRange = (resultPage - 1) * 6;
+      newItems = items.slice(lowRange, lowRange + 6);
+    } else {
+      newItems = items.slice(0, 6);
+    }
+
+    return newItems.map(({ titleId, artKey, artistName, title }) => {
       return (
         <Item
           key={titleId}
@@ -26,7 +38,7 @@ export class Content extends Component {
   }
 
   render() {
-    console.log(this.props.params.id);
+    const resultPage = this.props.params.id ? this.props.params.id : 1;
     const { items, isFetching } = this.props;
     let content = null;
 
@@ -38,7 +50,12 @@ export class Content extends Component {
       }
     }
 
-    return <div>{content}</div>;
+    return (
+      <div>
+        <Pagination items={items} resultPage={resultPage} />
+        {content}
+      </div>
+    );
   }
 }
 

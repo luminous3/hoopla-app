@@ -11,3 +11,7 @@
   justify-content: center;
   margin-top: 100px;
 }
+
+.pagination {
+  text-align: center;
+}
