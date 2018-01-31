@@ -26,6 +26,7 @@ export class Content extends Component {
   }
 
   render() {
+    console.log(this.props.params.id);
     const { items, isFetching } = this.props;
     let content = null;
 
