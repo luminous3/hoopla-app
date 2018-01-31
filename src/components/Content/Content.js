@@ -13,8 +13,15 @@ export class Content extends Component {
 
   renderItems() {
     const { items } = this.props;
-    return items.map(({ titleId, artKey }) => {
-      return <Item key={titleId} artKey={artKey} />;
+    return items.map(({ titleId, artKey, artistName, title }) => {
+      return (
+        <Item
+          key={titleId}
+          artKey={artKey}
+          title={title}
+          artistName={artistName}
+        />
+      );
     });
   }
 
@@ -30,7 +37,7 @@ export class Content extends Component {
       }
     }
 
-    return <div className="container">{content}</div>;
+    return <div>{content}</div>;
   }
 }
 

@@ -3,8 +3,8 @@ import styles from './Item.css';
 
 export class Item extends Component {
   render() {
-    const { artKey } = this.props;
-    debugger;
+    const { titleId, artKey, artistName, title } = this.props;
+
     return (
       <li className={styles.item}>
         <a
@@ -16,6 +16,10 @@ export class Item extends Component {
             alt="Preview"
           />
         </a>
+        <div className={styles.info}>
+          <div className={styles.title}>{title}</div>
+          <div className={styles.artist}>{artistName}</div>
+        </div>
       </li>
     );
   }
